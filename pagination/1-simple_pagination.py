@@ -1,4 +1,4 @@
-#!/usr/bin env python3
+#!/usr/bin/env python3
 """
 module contains a function that demonstrates "simple pagination"
 """
