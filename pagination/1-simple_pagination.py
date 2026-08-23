@@ -6,7 +6,14 @@ module contains a function that demonstrates "simple pagination"
 
 import csv
 import math
-from typing import List
+from typing import List, Tuple
+
+
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    "return the start and end indexes for pagination request"
+    start = (page - 1) * page_size
+    end = start + page_size
+    return (start, end)
 
 
 class Server:
@@ -32,10 +39,11 @@ class Server:
         """Return the requested page of the dataset."""
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
+        "must be int > 0"
+        start, end = index_range(page, page_size)
+        data = self.dataset()
 
+        if start >= len(data):
+            return []
 
-def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    "return the start and end indexes for pagination request"
-    start = (page - 1) * page_size
-    end = start + page_size
-    return (start, end)
+        return data[start:end]
