@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Provides stats about Nginx logs stored in MongoDB.
 """
@@ -13,7 +13,7 @@ def log_stats():
     client = MongoClient('mongodb://127.0.0.1:27017')
     nginx_collection = client.logs.nginx
 
-    # Total document count
+    # Total logs
     total_logs = nginx_collection.count_documents({})
     print(f"{total_logs} logs")
 
@@ -24,7 +24,7 @@ def log_stats():
         count = nginx_collection.count_documents({"method": method})
         print(f"\tmethod {method}: {count}")
 
-    # Specific status check count
+    # Status check count
     status_check = nginx_collection.count_documents(
         {"method": "GET", "path": "/status"}
     )
