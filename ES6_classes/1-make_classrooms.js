@@ -1,9 +1,9 @@
-import Class from "./0-classroom";
+import ClassRoom from "./0-classroom";
 
-export default function initializeRooms; {
+export default function initializeRooms() {
 return [
-	new clasroom(19)
-	new classroom(20)
-	new classroom(34)
+	new ClassRoom(19),
+	new ClassRoom(20),
+	new ClassRoom(34),
 ]
 }
