@@ -9,17 +9,17 @@ export default class Pricing {
 		return this._amount;
 	}
 	set amount(val) {
-		this._amount;
+		this._amount = val;
 	}
 	get currency() {
 		return this._currency;
 	}
 	set currency(val) {
-		this.currency;
+		this._currency = val;
 	}
 
 	displayFullPrice() {
-		return '${this._name} (${this._currency})`;
+		return `${this._name} (${this._currency})`;
 	}
 
 	static convertPrice(amount, conversionRate) {
