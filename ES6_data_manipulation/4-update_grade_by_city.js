@@ -1,4 +1,4 @@
-export default function updateStudentGradeByCity(ListStudents, city, newGrades) {
+export default function updateStudentGradeByCity(listStudents, city, newGrades) {
 	if (!Array.isArray(listStudents) || !Array.isArray(newGrades)) {
     return [];
   }
